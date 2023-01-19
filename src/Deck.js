@@ -72,11 +72,16 @@ class Deck extends Component {
       <div>
         {this.state.dataLoaded ? (
           <div>
-            <h2>Card Dealer</h2>
+            <h1>Card Dealer</h1>
             <button onClick={this.drawCard} disabled={this.state.allCardsDrawn}>
-              Draw me a card!
+              Gimme a card 😃
             </button>
             {this.renderedCards()}
+            {this.state.allCardsDrawn ? (
+              <h2>All cards drawn!</h2>
+            ) : (
+              <h2>Remaining cards: {this.state.deck.remaining}</h2>
+            )}
           </div>
         ) : (
           this.loadingMessage()
