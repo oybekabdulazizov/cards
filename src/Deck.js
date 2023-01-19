@@ -10,6 +10,7 @@ class Deck extends Component {
       deck: null,
       drawnCards: [],
       dataLoaded: false,
+      allCardsDrawn: false,
     };
     this.drawCard = this.drawCard.bind(this);
   }
@@ -31,20 +32,29 @@ class Deck extends Component {
     );
     console.log(cardRes);
 
-    const card = cardRes.data.cards[0];
+    try {
+      if (!cardRes.data.success) {
+        this.setState({ allCardsDrawn: true });
+        throw new Error('All the cards have been drawn! Nothing left to draw.');
+      }
 
-    this.setState((currState) => ({
-      deck: { ...currState.deck, remaining: cardRes.data.remaining },
-      drawnCards: [
-        ...currState.drawnCards,
-        {
-          code: card.code,
-          value: card.value,
-          suit: card.suit,
-          image: card.image,
-        },
-      ],
-    }));
+      const card = cardRes.data.cards[0];
+
+      this.setState((currState) => ({
+        deck: { ...currState.deck, remaining: cardRes.data.remaining },
+        drawnCards: [
+          ...currState.drawnCards,
+          {
+            code: card.code,
+            value: card.value,
+            suit: card.suit,
+            image: card.image,
+          },
+        ],
+      }));
+    } catch (err) {
+      alert(err);
+    }
   }
 
   loadingMessage() {
@@ -57,7 +67,9 @@ class Deck extends Component {
         {this.state.dataLoaded ? (
           <div>
             <h2>Card Dealer</h2>
-            <button onClick={this.drawCard}>Draw me a card!</button>
+            <button onClick={this.drawCard} disabled={this.state.allCardsDrawn}>
+              Draw me a card!
+            </button>
           </div>
         ) : (
           this.loadingMessage()
