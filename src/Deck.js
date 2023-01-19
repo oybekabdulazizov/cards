@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import Card from './Card';
 
 const BASE_URL = 'https://deckofcardsapi.com/api/deck';
 
@@ -30,7 +31,6 @@ class Deck extends Component {
     const cardRes = await axios.get(
       `${BASE_URL}/${this.state.deck.deck_id}/draw`
     );
-    console.log(cardRes);
 
     try {
       if (!cardRes.data.success) {
@@ -61,6 +61,12 @@ class Deck extends Component {
     return <h2>Loading...</h2>;
   }
 
+  renderedCards() {
+    return this.state.drawnCards.map((c) => {
+      return <Card card={c} key={c.code} idx={c.code} />;
+    });
+  }
+
   render() {
     return (
       <div>
@@ -70,6 +76,7 @@ class Deck extends Component {
             <button onClick={this.drawCard} disabled={this.state.allCardsDrawn}>
               Draw me a card!
             </button>
+            {this.renderedCards()}
           </div>
         ) : (
           this.loadingMessage()
