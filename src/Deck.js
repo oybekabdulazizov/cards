@@ -70,14 +70,14 @@ class Deck extends Component {
 
   render() {
     return (
-      <div>
+      <div className='Deck'>
         {this.state.dataLoaded ? (
-          <div>
+          <div className='Deck-wrapper'>
             <h1>Card Dealer</h1>
             <button onClick={this.drawCard} disabled={this.state.allCardsDrawn}>
               Gimme a card 😃
             </button>
-            {this.renderedCards()}
+            <div className='Cards'>{this.renderedCards()}</div>
             {this.state.allCardsDrawn ? (
               <h2>All cards drawn!</h2>
             ) : (

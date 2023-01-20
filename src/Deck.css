@@ -1,3 +1,64 @@
+.Deck {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: pink; */
+  /* background: linear-gradient(to right, #bbdbbe, #deebdd); */
+  background-color: #00b712;
+}
+
+.Deck-wrapper {
+  background-color: pink;
+  margin: 0;
+  padding: 0.5rem 0;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Deck-wrapper h1 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.Deck-wrapper button {
+  background-color: rgba(42, 42, 114, 1);
+  color: white;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.Deck-wrapper button[active],
+.Deck-wrapper button[focus] {
+  outline: none;
+}
+
+.Deck-wrapper button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(42, 42, 114, 0.8);
+}
+
+.Deck-wrapper h2 {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.Deck-wrapper .Cards {
+  height: 27rem;
+  width: 22rem;
+}
+
 .loader {
   margin: auto;
   border: 0.5rem solid #bdc3c7;
