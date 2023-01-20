@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import Card from './Card';
+import './Deck.css';
 
 const BASE_URL = 'https://deckofcardsapi.com/api/deck';
 
@@ -58,7 +59,7 @@ class Deck extends Component {
   }
 
   loadingMessage() {
-    return <h2>Loading...</h2>;
+    return <div className='loader'></div>;
   }
 
   renderedCards() {

@@ -1,0 +1,36 @@
+.loader {
+  margin: auto;
+  border: 0.5rem solid #bdc3c7;
+  width: 5rem;
+  height: 5rem;
+  border-top-color: #00b712;
+  border-bottom-color: #00b712;
+  border-radius: 50%;
+  animation: coloredspin 1s linear infinite;
+}
+
+@keyframes coloredspin {
+  0% {
+    transform: rotate(0deg) scale(1);
+    border-top-color: #00b712;
+    border-bottom-color: #00b712;
+  }
+  25% {
+    border-top-color: #00b712;
+    border-bottom-color: #00b712;
+  }
+  50% {
+    transform: rotate(360deg) scale(1.05);
+    border-top-color: #00b712;
+    border-bottom-color: #00b712;
+  }
+  75% {
+    border-top-color: #00b712;
+    border-bottom-color: #00b712;
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+    border-top-color: #00b712;
+    border-bottom-color: #00b712;
+  }
+}
