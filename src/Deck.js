@@ -58,10 +58,6 @@ class Deck extends Component {
     }
   }
 
-  loadingMessage() {
-    return <div className='loader'></div>;
-  }
-
   renderedCards() {
     return this.state.drawnCards.map((c) => {
       return <Card card={c} key={c.code} idx={c.code} />;
@@ -85,7 +81,7 @@ class Deck extends Component {
             <div className='Cards'>{this.renderedCards()}</div>
           </div>
         ) : (
-          this.loadingMessage()
+          <div className='loader'></div>
         )}
       </div>
     );
